@@ -1,0 +1,1 @@
+export const API:string="https://api.spacexdata.com/v3/capsules"
