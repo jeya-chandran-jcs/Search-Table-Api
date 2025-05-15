@@ -13,7 +13,7 @@ export default function Table() {
     // },[data])
     // console.log(resData?.length>0 ? resData : "loading")
   return (
-    <table className='w-[95%] border-collapse border-2 border-gray-400 rounded-md mx-auto px-4 py-3 group' >
+    <table className='w-[95%] min-w-[300px] border-collapse border-2 border-gray-400 rounded-md mx-auto px-4 py-3 group' >
         <thead className='bg-blue-300 '>
             <tr className=''>
                 <th>s.no</th>
@@ -31,20 +31,20 @@ export default function Table() {
         <tbody className=''>
            {loading ? <div className='min-h-screen bg-gray-200 flex justify-center items-center'>Loading</div> : 
             Array.isArray(data) &&  data.map((item,index)=>(
-                <tr key={index} className='hover:bg-blue-100 px-3 broder-r border-black'>
-                    <td className='text-center'>{index+1}</td>
-                    <td className='text-center'>{item.capsule_serial}</td>
-                    <td className='text-center'>{item.missions.length>0 ?
+              <tr key={index} className='hover:bg-blue-100 '>
+                    <td className='text-start text-wrap px-3 border-r border-black cursor-pointer'>{index+1}</td>
+                    <td className='text-start px-3 border-r border-black'>{item.capsule_serial}</td>
+                    <td className='text-start px-3 border-r border-black'>{item.missions.length>0 ?
                     <> 
-                        <span className='text-center'>name: {item?.missions?.[0]?.name || "Unknown"}</span> <span>flight: {item?.missions?.[0]?.flight || "Unknown"}</span>
+                        <span className='text-start px-3 border-r border-black'>name: {item?.missions?.[0]?.name || "Unknown"}</span> <span>flight: {item?.missions?.[0]?.flight || "Unknown"}</span>
                     </> : "Unknown"}</td>
-                    <td className='text-center'>{item?.details ? item.details : "Unknown"}</td>
-                    <td className='text-center'>{item?.original_launch ? new Date(item.original_launch).toLocaleString() : "Unknown"}</td>
-                    <td className='text-center'>{item?.original_launch_unix ? item.original_launch_unix : "Unknown"}</td>
-                    <td className='text-center'>{item.landings}</td>
-                    <td className='text-center'>{item.reuse_count}</td>
-                    <td className='text-center'>{item.status}</td>
-                    <td className='text-center'>{item.type}</td>
+                    <td className='text-start px-3 border-r border-black'>{item?.details ? item.details : "Unknown"}</td>
+                    <td className='text-start px-3 border-r border-black'>{item?.original_launch ? new Date(item.original_launch).toLocaleString() : "Unknown"}</td>
+                    <td className='text-start px-3 border-r border-black'>{item?.original_launch_unix ? item.original_launch_unix : "Unknown"}</td>
+                    <td className='text-start px-3 border-r border-black'>{item.landings}</td>
+                    <td className='text-start px-3 border-r border-black'>{item.reuse_count}</td>
+                    <td className='text-start px-3 border-r border-black'>{item.status}</td>
+                    <td className='text-start px-3 border-r border-black'>{item.type}</td>
                 </tr>
          ))
            }
